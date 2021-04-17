@@ -1,7 +1,7 @@
 import 'package:easycontab/models/Abstract.dart';
 
 class Usuario extends Abstract{
-  String nome, login, senha, email;
+  String nome, login, senha, email, foto;
   bool admin;
 
   Usuario(
@@ -15,6 +15,7 @@ class Usuario extends Abstract{
     this.senha = json['senha'];
     this.email = json['email'];
     this.admin = json['admin'];
+    this.foto = json['foto'];
   }
 
   Map<String, dynamic> toJson() => {
@@ -23,7 +24,7 @@ class Usuario extends Abstract{
     'login': this.login,
     'senha': this.senha,
     'email': this.email,
-    'admin': true,
+    'admin': this.admin,
   };
 
 
