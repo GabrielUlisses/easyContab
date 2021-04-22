@@ -1,6 +1,6 @@
-import 'package:easycontab/models/Abstract.dart';
-import 'package:easycontab/models/Duvida.dart';
-import 'package:easycontab/models/Usuario.dart';
+import 'Abstract.dart';
+import 'Duvida.dart';
+import 'Usuario.dart';
 
 class Resposta extends Abstract{
   Usuario usuario;

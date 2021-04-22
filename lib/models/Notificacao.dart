@@ -1,5 +1,5 @@
-import 'package:easycontab/models/Abstract.dart';
-import 'package:easycontab/models/Usuario.dart';
+import 'Abstract.dart';
+import 'Usuario.dart';
 
 class Notificacao extends Abstract{
   Usuario usuario;

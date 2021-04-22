@@ -1,11 +1,12 @@
-import 'package:easycontab/models/Abstract.dart';
+
+import 'Abstract.dart';
 
 class Usuario extends Abstract{
   String nome, login, senha, email, foto;
   bool admin;
 
   Usuario(
-    {id, this.nome, this.login, this.senha, this.email, this.admin}
+    {id, this.nome, this.login, this.senha, this.email, this.admin, this.foto}
   ) : super(id: id);
 
   Usuario.fromJson(Map<String, dynamic> json){

@@ -1,5 +1,5 @@
-import 'package:easycontab/models/Abstract.dart';
-import 'package:easycontab/models/Categoria.dart';
+import 'Abstract.dart';
+import 'Categoria.dart';
 
 class PalavraChave extends Abstract{
   String nome;

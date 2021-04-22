@@ -1,4 +1,4 @@
-import 'package:easycontab/models/Abstract.dart';
+import 'Abstract.dart';
 
 class Categoria extends Abstract{
   String nome, descricacao;
