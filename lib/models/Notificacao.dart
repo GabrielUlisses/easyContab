@@ -7,8 +7,7 @@ class Notificacao extends Abstract{
   String titulo, conteudo, tipo;
 
   Notificacao( 
-    int id, DateTime criacao, 
-    { this.usuario, this.usuarioId, this.titulo, this.conteudo, this.tipo }
+    { id, criacao, this.usuario, this.usuarioId, this.titulo, this.conteudo, this.tipo }
   ) : super(id: id, criacao: criacao);
 
   Notificacao.fromJson(Map<String, dynamic> json){

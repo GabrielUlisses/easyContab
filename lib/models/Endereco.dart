@@ -4,9 +4,8 @@ class Endereco extends Abstract{
   String estado, uf, cep, cidade, bairro, logradouro, numero, complemento, latitude, longitude;
 
   Endereco(
-    int id, 
     { 
-      this.estado, this.uf, this.cep, this.cidade, this.bairro, this.logradouro, 
+      id, this.estado, this.uf, this.cep, this.cidade, this.bairro, this.logradouro, 
       this.numero, this.complemento, this.latitude, this.longitude
     }
   ) : super(id: id);

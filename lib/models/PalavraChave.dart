@@ -6,13 +6,13 @@ class PalavraChave extends Abstract{
   Categoria categoria;
 
   PalavraChave( 
-    int id, { this.nome, this.categoria}
+    { id, this.nome, this.categoria}
   ) : super(id: id);
 
   PalavraChave.toJson(Map<String, dynamic> json){
     this.id = json['id'];
     this.nome = json['nome'];
-    this.categoria = Categoria(json['categoria']['id'], categoriaPai: json['categoria']['nome']);
+    this.categoria = Categoria(id: json['categoria']['id'], categoriaPai: json['categoria']['nome']);
   }
 
   @override 

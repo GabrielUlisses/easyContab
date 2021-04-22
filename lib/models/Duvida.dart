@@ -10,8 +10,7 @@ class Duvida extends Abstract{
   bool aberta, resolvida;
 
   Duvida(
-    int id,
-    { this.titulo, this.descricao, this.usuario, this.categorias, this.nrFavoritos, this.nrRespostas, this.nrViews, this.aberta, this.resolvida }
+    { id, this.titulo, this.descricao, this.usuario, this.categorias, this.nrFavoritos, this.nrRespostas, this.nrViews, this.aberta, this.resolvida }
   ) : super(id: id);
 
   Duvida.fromJson( Map<String, dynamic> json){

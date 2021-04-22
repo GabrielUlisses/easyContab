@@ -7,9 +7,8 @@ class Contador extends Abstract{
   Endereco endereco;
 
   Contador(
-    int id,
     {
-     this.nrCrc, this.nrContato, this.endereco 
+      id, this.nrCrc, this.nrContato, this.endereco 
     }
   ) : super(id: id);
 
@@ -17,7 +16,7 @@ class Contador extends Abstract{
     this.id = json["id"];
     this.nrCrc = json['nome'];
     this.nrContato = json['login'];
-    this.endereco = Endereco(json['endereco']['id']);
+    this.endereco = Endereco(id: json['endereco']['id']);
   }
 
   Map<String, dynamic> toJson() => {

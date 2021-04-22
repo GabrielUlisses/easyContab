@@ -9,8 +9,7 @@ class Resposta extends Abstract{
   bool resolveu;
 
   Resposta(
-    int id, DateTime criacao, DateTime ultimaModificacao,
-    { this.usuario, this.duvida, this.conteudo, this.resolveu }
+    { id, criacao, ultimaModificacao, this.usuario, this.duvida, this.conteudo, this.resolveu }
   ) : super(id: id, criacao: criacao, ultimaModificacao: ultimaModificacao);
 
   Resposta.fromJson(Map<String, dynamic> json){
@@ -18,7 +17,7 @@ class Resposta extends Abstract{
     this.criacao = DateTime.parse(json['criacao']);
     this.ultimaModificacao = DateTime.parse(json['ultima_modificacao']);
     this.usuario = Usuario(id: json['usuario']['id'] , nome: json['usuario']['nome']);
-    this.duvida = Duvida(json['duvida']['id']);
+    this.duvida = Duvida(id: json['duvida']['id']);
     this.conteudo = json['conteudo'];
     this.resolveu = json['resolveu'];
   } 

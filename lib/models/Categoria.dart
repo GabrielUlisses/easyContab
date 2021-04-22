@@ -5,14 +5,14 @@ class Categoria extends Abstract{
   Categoria categoriaPai;
 
   Categoria(
-    int id, { this.nome, this.descricacao, this.categoriaPai }
+    { id, this.nome, this.descricacao, this.categoriaPai }
   ) : super(id: id);
 
   Categoria.fromJson( Map<String, dynamic> json ) {
     this.id = json['id'];
     this.nome = json['nome'];
     this.descricacao = json['descricao'];
-    this.categoriaPai = Categoria(json['id']);
+    this.categoriaPai = Categoria(id: json['id']);
   }
 
   Map<String, dynamic> toJson() => {
