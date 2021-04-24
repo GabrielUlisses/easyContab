@@ -12,7 +12,7 @@ class Categoria extends Abstract{
     this.id = json['id'];
     this.nome = json['nome'];
     this.descricacao = json['descricao'];
-    this.categoriaPai = Categoria(id: json['id']);
+    this.categoriaPai = json['categoria_pai'] != null ? Categoria(id: json['categoria_pai']['id']) : null;
   }
 
   Map<String, dynamic> toJson() => {

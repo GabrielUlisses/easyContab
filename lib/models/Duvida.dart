@@ -1,55 +1,92 @@
 import 'Abstract.dart';
 import 'Categoria.dart';
+import 'Comentario.dart';
+import 'Resposta.dart';
 import 'Usuario.dart';
 
 class Duvida extends Abstract{
   Usuario usuario;
   List<Categoria> categorias;
+  List<Resposta> respostas;
+  List<Comentario> comentarios;
   String titulo, descricao;
   int nrRespostas, nrViews, nrFavoritos;
   bool aberta, resolvida;
+  
+    Duvida(
+      { id, this.titulo, this.descricao, this.usuario, this.categorias, this.nrFavoritos, this.nrRespostas, this.nrViews, this.aberta, this.resolvida }
+    ) : super(id: id);
+  
+    Duvida.fromJson( Map<String, dynamic> json, { bool loadDependencys = false}){
+      this.id = json['id'];
+      this.criacao = DateTime.parse(json['criacao']) ?? null;
+      this.ultimaModificacao = DateTime.parse(json['ultima_modificacao']) ?? null;
+      this.usuario = Usuario.fromJson(json['usuario']);
+      this.titulo = json['titulo'];
+      this.descricao = json['descricao'];
+      this.nrRespostas = json['nr_respostas'];
+      this.nrViews = json['nr_views'];
+      this.nrFavoritos = json['nr_favoritos'];
+      this.aberta = json['aberta'];
+      this.resolvida = json['resolvida'];
+      this.categorias = this.categoriasFromJson(json['categorias']);
+      if( loadDependencys == true){
+        this.comentarios = comentariosFromJson(json['comentarios']);
+        this.respostas = respostasFromJson(json['respostas']);
+      }
+    }
 
-  Duvida(
-    { id, this.titulo, this.descricao, this.usuario, this.categorias, this.nrFavoritos, this.nrRespostas, this.nrViews, this.aberta, this.resolvida }
-  ) : super(id: id);
+    List<Categoria> categoriasFromJson(dynamic json){
+      List<Categoria> categorias = [];
 
-  Duvida.fromJson( Map<String, dynamic> json){
-    this.id = json['id'];
-    this.criacao = DateTime.parse(json['criacao']) ?? null;
-    this.ultimaModificacao = DateTime.parse(json['ultima_modificacao']) ?? null;
-    this.usuario = Usuario(id: json['id']);
-    this.titulo = json['titulo'];
-    this.descricao = json['descricao'];
-    this.nrRespostas = json['nr_respostas'];
-    this.nrViews = json['nr_views'];
-    this.nrFavoritos = json['nr_favoritos'];
-    this.aberta = json['aberta'];
-    this.resolvida = json['resolvida'];
-    this.categorias = [];
-  }
+      for( var categoria in json){
+        categorias.add( Categoria.fromJson(categoria) );
+      }
+      return categorias;
+    }
 
-  Map<String, dynamic> toJson() => {
-    'id': this.id,
-    'usuario': this.usuario.id,
-    'titulo': this.titulo,
-    'descricao': this.descricao,
-    'nr_respostas': this.nrRespostas,
-    'nr_views': this.nrViews ,
-    'nr_favoritos': this.nrFavoritos ,
-    'aberta': this.aberta ,
-    'resolvida': this.resolvida ,
-    'categorias': this.gategoriasToJson(),
-  };
+    List<Comentario> comentariosFromJson(dynamic json){
+      List<Comentario> comentarios = [];
 
-  List<Map<String, dynamic>> gategoriasToJson(){
-    List<Map<String, dynamic>> categorias = [];
-    this.categorias.forEach((Categoria categoria) { 
-      categorias.add(categoria.toJson());
-    });
-    return categorias;
-  }
+      for( var comentario in json){
+        comentarios.add( Comentario.fromJson(comentario) );
+      }
+      return comentarios;
+    }
 
-  @override 
-  String toString() => "${this.titulo}"; 
+    List<Resposta> respostasFromJson(dynamic json){
+      List<Resposta> respostas = [];
 
+      for( var resposta in json){
+        respostas.add( Resposta.fromJson(resposta) );
+      }
+      return respostas;
+    }
+
+    Map<String, dynamic> toJson() => {
+      'id': this.id,
+      'usuario': this.usuario.id,
+      'titulo': this.titulo,
+      'descricao': this.descricao,
+      'nr_respostas': this.nrRespostas,
+      'nr_views': this.nrViews ,
+      'nr_favoritos': this.nrFavoritos ,
+      'aberta': this.aberta ,
+      'resolvida': this.resolvida ,
+      'categorias': this.gategoriasToJson(),
+    };
+  
+    List<Map<String, dynamic>> gategoriasToJson(){
+      List<Map<String, dynamic>> categorias = [];
+      this.categorias.forEach((Categoria categoria) { 
+        categorias.add(categoria.toJson());
+      });
+      return categorias;
+    }
+  
+    @override 
+    String toString() => "${this.titulo}"; 
+  
 }
+  
+  

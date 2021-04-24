@@ -9,7 +9,8 @@ class PalavraChave extends Abstract{
     { id, this.nome, this.categoria}
   ) : super(id: id);
 
-  PalavraChave.toJson(Map<String, dynamic> json){
+
+  PalavraChave.fromJson(Map<String, dynamic> json){
     this.id = json['id'];
     this.nome = json['nome'];
     this.categoria = Categoria(id: json['categoria']['id'], categoriaPai: json['categoria']['nome']);
