@@ -36,45 +36,23 @@ class DuvidaService extends AbstractService {
   }
 
   // GET
-  Future<Duvida> getDuvida(int id) async{
+  Future<Duvida> getDuvida(int id, { bool loadDependencies = false }) async{
     http.Response response = await http.get( this.buildUri(id.toString()) );
     
     dynamic json = this.decode(response);
-    return Duvida.fromJson(json);
-
-  }
-
-  // GET
-  Future<Duvida> getDuvidaFull(int id) async{
-    http.Response response = await http.get( this.buildUri(id.toString()) );
-    dynamic json = this.decode(response);
-
-    return Duvida.fromJson(json, loadDependencys: true);
+    return Duvida.fromJson(json, loadDependencies: loadDependencies);
 
   }
 
   // GET --> LIST
-  Future<List<Duvida>> getDuvidas() async{
+  Future<List<Duvida>> getDuvidas({ bool loadDependencies = false }) async{
     List<Duvida> categorias = [];
     http.Response response = await http.get(this.buildUri());
 
     dynamic json = this.decode(response);
 
     for( var obj in json){
-      categorias.add( Duvida.fromJson(obj) );
-    }
-    return categorias;
-  }
-
-   // GET --> LIST
-  Future<List<Duvida>> getDuvidasFull() async{
-    List<Duvida> categorias = [];
-    http.Response response = await http.get(this.buildUri());
-
-    dynamic json = this.decode(response);
-
-    for( var obj in json){
-      categorias.add( Duvida.fromJson(obj, loadDependencys: true) );
+      categorias.add( Duvida.fromJson(obj, loadDependencies: loadDependencies) );
     }
     return categorias;
   }

@@ -1,3 +1,5 @@
+import 'package:easycontab/models/Reacao.dart';
+
 import 'Abstract.dart';
 import 'Categoria.dart';
 import 'Comentario.dart';
@@ -9,15 +11,16 @@ class Duvida extends Abstract{
   List<Categoria> categorias;
   List<Resposta> respostas;
   List<Comentario> comentarios;
+  List<ReacaoDuvida> reacoes;
   String titulo, descricao;
-  int nrRespostas, nrViews, nrFavoritos;
+  int nrRespostas, nrViews, nrFavoritos, nrAprovacoes, nrDesaprovacoes;
   bool aberta, resolvida;
   
     Duvida(
-      { id, this.titulo, this.descricao, this.usuario, this.categorias, this.nrFavoritos, this.nrRespostas, this.nrViews, this.aberta, this.resolvida }
+      { id, this.titulo, this.descricao, this.usuario, this.categorias, this.nrFavoritos, this.nrAprovacoes, this.nrDesaprovacoes, this.nrRespostas, this.nrViews, this.aberta, this.resolvida }
     ) : super(id: id);
   
-    Duvida.fromJson( Map<String, dynamic> json, { bool loadDependencys = false}){
+    Duvida.fromJson( Map<String, dynamic> json, { bool loadDependencies = false}){
       this.id = json['id'];
       this.criacao = DateTime.parse(json['criacao']) ?? null;
       this.ultimaModificacao = DateTime.parse(json['ultima_modificacao']) ?? null;
@@ -30,9 +33,10 @@ class Duvida extends Abstract{
       this.aberta = json['aberta'];
       this.resolvida = json['resolvida'];
       this.categorias = this.categoriasFromJson(json['categorias']);
-      if( loadDependencys == true){
+      if( loadDependencies == true){
         this.comentarios = comentariosFromJson(json['comentarios']);
         this.respostas = respostasFromJson(json['respostas']);
+        this.reacoes = reacoesFromJson(json['reacoes']);
       }
     }
 
@@ -61,6 +65,15 @@ class Duvida extends Abstract{
         respostas.add( Resposta.fromJson(resposta) );
       }
       return respostas;
+    }
+
+    List<ReacaoDuvida> reacoesFromJson(dynamic json){
+      List<ReacaoDuvida> reacoes = [];
+
+      for( var resposta in json){
+        reacoes.add( ReacaoDuvida.fromJson(resposta) );
+      }
+      return reacoes;
     }
 
     Map<String, dynamic> toJson() => {
