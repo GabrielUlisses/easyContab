@@ -18,7 +18,7 @@ class Favorito extends Abstract{
   Favorito.fromJson(Map<String, dynamic> json){
     this.id = json['id'];
     this.criacao = json['criacao'];
-    this.usuario = json['usuario']['id'];
+    this.usuario = Usuario.fromJson(json['usuario']);
     this.duvida = Duvida.fromJson(json['duvida']);
   }
 

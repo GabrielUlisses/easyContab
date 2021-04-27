@@ -2,60 +2,60 @@ import 'package:http/http.dart' as http;
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-import 'package:easycontab/models/Usuario.dart';
+import 'package:easycontab/models/Favorito.dart';
 import 'AbstractService.dart';
 
-class UsuarioService extends AbstractService {
+class FavoritoService extends AbstractService {
 
-  UsuarioService({ encoding, prefix, @required host, path, queryParams}) 
+  FavoritoService({ encoding, prefix, @required host, path, queryParams}) 
   : super( prefix: prefix, host: host, path: path, queryParams: queryParams, encoding: encoding );
   //({ encoding, prefix, host, path, queryParams}) : super( prefix: prefix, host: host, path: path, queryParams: queryParams, encoding: encoding );
 
 
   // POST
-  Future<Usuario> registerUsuario(Usuario usuario) async {
+  Future<Favorito> registerFavorito(Favorito favorito) async {
     http.Response response = await http.post(
       this.buildUri(),
-      body: json.encode(usuario.toJson()),
+      body: json.encode(favorito.toJson()),
       headers: this.getHeader(),
       encoding: this.encoding
     );
 
-    return Usuario.fromJson(this.decode(response));
+    return Favorito.fromJson(this.decode(response));
   }
 
   // PUT
-  Future<Usuario> updateUsuario({int id, Usuario usuario}) async {
+  Future<Favorito> updateFavorito({int id, Favorito favorito}) async {
     http.Response response = await http.put(
       this.buildUri(id.toString()),
-      body: json.encode(usuario.toJson()),
+      body: json.encode(favorito.toJson()),
       headers: this.getHeader(),
       encoding: this.encoding
     );
 
-    return Usuario.fromJson(this.decode(response));
+    return Favorito.fromJson(this.decode(response));
   }
 
   // GET
-  Future<Usuario> getUsuario(int id) async{
+  Future<Favorito> getFavorito(int id) async{
     http.Response response = await http.get( this.buildUri(id.toString()) );
     
     dynamic json = this.decode(response);
-    return Usuario.fromJson(json);
+    return Favorito.fromJson(json);
 
   }
 
   // GET --> LIST
-  Future<List<Usuario>> getUsuarios() async{
-    List<Usuario> usuarios = [];
+  Future<List<Favorito>> getFavoritos() async{
+    List<Favorito> favoritos = [];
     http.Response response = await http.get(this.buildUri());
 
     dynamic json = this.decode(response);
 
     for( var obj in json){
-      usuarios.add( Usuario.fromJson(obj) );
+      favoritos.add( Favorito.fromJson(obj) );
     }
-    return usuarios;
+    return favoritos;
   }
 
 }

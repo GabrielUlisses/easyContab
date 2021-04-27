@@ -16,14 +16,14 @@ class Contador extends Abstract{
     this.id = json["id"];
     this.nrCrc = json['nome'];
     this.nrContato = json['login'];
-    this.endereco = Endereco(id: json['endereco']['id']);
+    this.endereco = Endereco.fromJson(json['endereco']);
   }
 
   Map<String, dynamic> toJson() => {
     'id': this.id,
     'nr_crc': this.nrCrc,
     'nr_contato': this.nrContato,
-    'endereco_id': this.endereco.id,
+    'endereco': this.endereco.toJson(),
   };
 
   @override 
