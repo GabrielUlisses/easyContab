@@ -2,6 +2,7 @@
 
 import 'package:easycontab/screen/EditarUsuario.dart';
 import 'package:easycontab/screen/FormularioContador.dart';
+import 'package:easycontab/screen/Perfil.dart';
 import 'package:easycontab/screen/RegistroUsuario.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -61,7 +62,7 @@ class MyApp extends StatelessWidget {
         child: Scaffold(
           backgroundColor: Colors.black.withOpacity(0.8),
           //appBar: loggedAppBar,
-          body: FormularioContador()
+          body: Perfil()
         ),
       ),
     );

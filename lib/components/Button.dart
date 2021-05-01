@@ -30,11 +30,11 @@ class _CustomButtonState extends State<CustomButton> {
     }
 
     return ElevatedButton(
-      child: Text(this.widget.label, style: GoogleFonts.openSans( fontWeight: FontWeight.w600, fontSize: 22  ),),
+      child: Text(this.widget.label, style: GoogleFonts.openSans( fontWeight: FontWeight.w600, fontSize: 20  ),),
       onPressed: this.widget.action, 
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all(Color.fromRGBO(64,140,229, 1)),
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric( horizontal: 40, vertical: 15 )),
+        padding: MaterialStateProperty.all(EdgeInsets.symmetric( horizontal: 30, vertical: 10 )),
 
       ),
     );
