@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class CustomTextField extends StatefulWidget {
+
+  final String hintText, labelText;
+  final double padding;
+  final TextEditingController textController;
+  final EdgeInsets margin;
+
+  CustomTextField({ this.hintText, this.padding = 20, this.textController, this.labelText, this.margin });
+
+  @override
+  _CustomTextFieldState createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: this.widget.margin,
+      padding: EdgeInsets.symmetric( horizontal: 20 ),
+      decoration: BoxDecoration(
+        color: Colors.grey[300],
+        borderRadius: BorderRadius.circular(4)
+      ),
+      child: TextField(
+        controller: this.widget.textController ?? null,
+        decoration: InputDecoration(
+          labelText: this.widget.labelText,
+          labelStyle: GoogleFonts.openSans( color: Colors.grey[800], fontWeight: FontWeight.w700),
+          hintText: this.widget.hintText,
+          hintStyle: GoogleFonts.openSans( color: Colors.grey[600], fontWeight: FontWeight.w700) ,          
+          enabledBorder: InputBorder.none,
+          focusedBorder: InputBorder.none
+        ),
+      ),
+    );
+  }
+}
