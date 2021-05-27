@@ -75,6 +75,7 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
 
   bool validateEmail(){
     RegExp regex = RegExp(r"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+    
     if( this.emailController.text != null && this.emailController.text != '' && this.emailController.text != ' ' ){
       return true;
     }
