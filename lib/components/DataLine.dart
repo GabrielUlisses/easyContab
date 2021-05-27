@@ -20,11 +20,11 @@ class DataLine extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(this.dataLabel, style: GoogleFonts.openSans( color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w600)),
+              Text(this.dataLabel, style: GoogleFonts.openSans( color: Colors.grey, fontSize: 14, fontWeight: FontWeight.w700)),
               SizedBox(height: 5),
               Container(
                 width: MediaQuery.of(context).size.width * 0.63,
-                child: Text(this.dataValue, overflow: TextOverflow.ellipsis, style: GoogleFonts.openSans( color: Colors.grey[900], fontSize: 15, fontWeight: FontWeight.w500))
+                child: Text(this.dataValue, overflow: TextOverflow.ellipsis, style: GoogleFonts.openSans( color: Colors.grey[800], fontSize: 16, fontWeight: FontWeight.w600))
               ),
             ],
           ),

@@ -11,14 +11,14 @@ class DataText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric( horizontal: 5 ),
+      padding: EdgeInsets.symmetric( horizontal: 10 ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(this.dataLabel, style: GoogleFonts.openSans( color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w600)),
+          Text(this.dataLabel, style: GoogleFonts.openSans( color: Colors.grey, fontSize: 13, fontWeight: FontWeight.w700)),
           SizedBox(height: 5),
-          Text(this.dataValue, overflow: TextOverflow.ellipsis, style: GoogleFonts.openSans( color: Colors.grey[900], fontSize: 15, fontWeight: FontWeight.w500))
+          Text(this.dataValue, overflow: TextOverflow.ellipsis, style: GoogleFonts.openSans( color: Colors.grey[900], fontSize: 15, fontWeight: FontWeight.w600))
         ],
       ),
     );

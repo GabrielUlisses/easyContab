@@ -1,4 +1,5 @@
 import 'package:easycontab/components/AppBar.dart';
+import 'package:easycontab/components/BackgroundBaseWidget.dart';
 import 'package:easycontab/components/Button.dart';
 import 'package:easycontab/components/CustomTextField.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,7 @@ class FormularioContador extends StatefulWidget {
 class _FormularioContadorState extends State<FormularioContador> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
+    return BackgroundBaseWidget(
       child: Column(
         children: [
           CustomAppBar(logged: true),

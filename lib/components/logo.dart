@@ -10,8 +10,8 @@ class Logo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text("easy", style: GoogleFonts.openSans(color: Colors.white, fontSize: 22, fontWeight: FontWeight.w600)),
-          Text("Contab", style: GoogleFonts.openSans(color: Color.fromRGBO(66,78,186, 1), fontSize: 24, fontWeight: FontWeight.w700,))
+          Text("easy", style: GoogleFonts.openSans(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w600, height: 0.3)),
+          Text("Contab", style: GoogleFonts.openSans(color: Color.fromRGBO(66,78,186, 1), fontSize: 28, fontWeight: FontWeight.w700, height: 1))
         ],
       ),
     );
