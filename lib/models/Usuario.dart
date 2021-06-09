@@ -11,7 +11,7 @@ class Usuario extends Abstract{
 
   Usuario.fromJson(Map<String, dynamic> json){
     this.id = json["id"];
-    this.nome = json['nome'];
+    this.nome = json['name'];
     this.login = json['login'];
     this.senha = json['senha'];
     this.email = json['email'];

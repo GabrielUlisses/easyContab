@@ -149,7 +149,17 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
                     ),
                     SizedBox( height: 20 ),
                     CustomButton(label: "CADASTRO", action: submit,),
-                    SizedBox( height: 60 ),
+                    SizedBox( height: 30 ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        textStyle: GoogleFonts.openSans( fontWeight: FontWeight.w600, fontSize: 14)
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Realizar Login'),
+                    ),
+                    SizedBox( height: 40 ),
                   ],
                 ),
               ),

@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  jwt_decoder: ^2.0.1
+  shared_preferences: ^2.0.6
   find_dropdown: ^1.0.0 
   google_fonts: ^2.0.0
   http: ^0.13.0

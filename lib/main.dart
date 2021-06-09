@@ -1,5 +1,5 @@
 
-import 'package:easycontab/screen/RegistroUsuario.dart';
+import 'package:easycontab/screen/PaginaLogin.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'easyContab',
       debugShowCheckedModeBanner: false,
-      home: RegistroUsuario()
+      home: PaginaLogin()
     );
   }
 }
