@@ -9,6 +9,19 @@ class AuthService extends AbstractService {
   AuthService({ encoding, prefix, @required host, path, queryParams}) 
   : super( prefix: prefix, host: host, path: path, queryParams: queryParams, encoding: encoding );
   
+
+  // CONFIRM
+  Future<Map<String, dynamic>> confirm([ String token ]) async {
+    http.Response response = await http.post( 
+      this.buildUri("confirm"),
+      headers: this.getHeader(),
+      body: json.encode({ 'token': token })
+    );
+    dynamic data = this.decode(response);
+    return data;
+  }
+
+  // LOGIN
   Future<Map<String, dynamic>> login([ String email, String senha ]) async {
     http.Response response = await http.post( 
       this.buildUri("login"),
@@ -19,11 +32,12 @@ class AuthService extends AbstractService {
     return data;
   }
 
-  Future<Map<String, dynamic>> confirm([ String token ]) async {
+  // REGISTER
+  Future<Map<String, dynamic>> register([ String login, String email, String senha ]) async {
     http.Response response = await http.post( 
-      this.buildUri("confirm"),
+      this.buildUri("register"),
       headers: this.getHeader(),
-      body: json.encode({ 'token': token })
+      body: json.encode({ 'name': login, 'email': email, 'password': senha, 'password_confirmation': senha})
     );
     dynamic data = this.decode(response);
     return data;

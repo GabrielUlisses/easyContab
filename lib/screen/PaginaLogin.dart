@@ -9,6 +9,7 @@ import 'package:easycontab/contants/app_assets.dart';
 import 'package:easycontab/screen/Duvidas.dart';
 import 'package:easycontab/screen/RegistroUsuario.dart';
 import 'package:easycontab/services/AuthService.dart';
+import 'package:easycontab/utils/Preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -20,10 +21,14 @@ class PaginaLogin extends StatefulWidget {
 
 class _PaginaLoginState extends State<PaginaLogin> {
 
+  AuthService service = new AuthService( prefix: ApiUrls.prefix, host: ApiUrls.host, path: "grd/auth");
+
   TextEditingController nomeController = new TextEditingController();
   TextEditingController senhaController = new TextEditingController();
 
-  AuthService service = new AuthService( prefix: ApiUrls.prefix, host: ApiUrls.host, path: "grd/auth");
+  Preferences preferences = new Preferences();
+  
+
 
   void showError(String msg){
     ScaffoldMessenger.of(context).showSnackBar(
@@ -40,13 +45,8 @@ class _PaginaLoginState extends State<PaginaLogin> {
         Map<String, dynamic> data = await this.service.login( this.nomeController.text, this.senhaController.text );
         if( data["status"] == 201 ) {
           String token = data["data"]["accessToken"]["token"];
-          data = await this.service.confirm(token);
-          if( data["status"] == 201 ){
-            
-            Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
-          }else{
-            this.showError("Você não está autorizado a acessar nosso sistema");
-          }
+          this.preferences.setToken(token);
+          Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
         }
         else{
           this.showError("Usuário Não encontrado");
@@ -74,6 +74,8 @@ class _PaginaLoginState extends State<PaginaLogin> {
   @override
   Widget build(BuildContext context) {
 
+    this.preferences.init();
+
     var size = MediaQuery.of(context).size;
 
     return BackgroundBaseWidget(
@@ -100,7 +102,7 @@ class _PaginaLoginState extends State<PaginaLogin> {
                   children: [
                     SizedBox( height: 30 ),
                     CustomTextField(labelText: "Nome", textController: this.nomeController, margin: EdgeInsets.only(top: 60, bottom: 10, left: 20, right: 20),),
-                    CustomTextField(labelText: "SENHA", textController: this.senhaController, margin: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20)),                    
+                    CustomTextField(labelText: "SENHA", textController: this.senhaController, password: true, margin: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20)),                    
                     SizedBox( height: 20 ),
                     CustomButton(label: "LOGIN", action: submit,),
                     SizedBox( height: 30 ),

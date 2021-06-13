@@ -2,16 +2,22 @@
 import 'package:easycontab/components/AppBar.dart';
 import 'package:easycontab/components/BackgroundBaseWidget.dart';
 import 'package:easycontab/components/Button.dart';
-import 'package:easycontab/components/CustomTextField.dart';
 import 'package:easycontab/components/DataLine.dart';
 import 'package:easycontab/components/DataText.dart';
+import 'package:easycontab/utils/Preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Perfil extends StatelessWidget {
 
+  Preferences preferences = new Preferences();
+
   @override
   Widget build(BuildContext context) {
+
+    preferences.init();
+    
+    Map<String, dynamic> user = this.preferences.getUser();
 
     return BackgroundBaseWidget(
       child: Column(
