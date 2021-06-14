@@ -1,13 +1,14 @@
 
 import 'package:easycontab/components/Button.dart';
 import 'package:easycontab/components/CustomTextField.dart';
-import 'package:easycontab/components/DuvidaComponent.dart';
 import 'package:easycontab/components/FeedAppBar.dart';
 import 'package:easycontab/components/SearchTextField.dart';
 import 'package:easycontab/components/misc/DrawerActionItem.dart';
 import 'package:easycontab/contants/app_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'Duvidas.dart';
 
 class CriarDuvida extends StatelessWidget {
 
@@ -120,12 +121,16 @@ class CriarDuvida extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               CustomSmallButton(
-                                action: (){},
+                                action: (){
+                                  Navigator.pop(context);
+                                },
                                 label: "CANCELAR",
                                 color: Color.fromRGBO(229,64,64,1),
                               ),
                               CustomSmallButton(
-                                action: (){},
+                                action: (){
+                                  Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
+                                },
                                 label: "ABRIR",
                               ),
                             ],                           

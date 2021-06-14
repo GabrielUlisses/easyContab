@@ -8,6 +8,8 @@ import 'package:easycontab/utils/Preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'EditarUsuario.dart';
+
 class Perfil extends StatelessWidget {
 
   Preferences preferences = new Preferences();
@@ -67,8 +69,15 @@ class Perfil extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [ 
-                      Padding(padding: EdgeInsets.symmetric( horizontal: 10 ), child: CustomButton( label: "CONSULTAR", action: (){}, ) , ),
-                      Padding(padding: EdgeInsets.symmetric( horizontal: 10 ), child: CustomButton( label: "EDITAR", action: (){}, ) , )
+                      Padding(
+                        padding: EdgeInsets.symmetric( horizontal: 10 ), 
+                        child: CustomButton( 
+                          label: "EDITAR", 
+                          action: (){
+                            Navigator.push( context, MaterialPageRoute(builder: (context) => EditarUsuario()) );
+                          }, 
+                        ), 
+                      )
                     ],
                   ),
                 )

@@ -3,10 +3,8 @@ import 'package:easycontab/components/CustomDrawer.dart';
 import 'package:easycontab/components/DuvidaComponent.dart';
 import 'package:easycontab/components/FeedAppBar.dart';
 import 'package:easycontab/components/SearchTextField.dart';
-import 'package:easycontab/components/misc/DrawerActionItem.dart';
-import 'package:easycontab/contants/app_assets.dart';
+import 'package:easycontab/screen/CriarDuvida.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class Duvidas extends StatelessWidget {
 
@@ -47,34 +45,10 @@ class Duvidas extends StatelessWidget {
       ),
       floatingActionButton: IconButton(
         icon: Icon(Icons.add),
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push( context, MaterialPageRoute(builder: (context) => CriarDuvida()) );
+        },
       )
     );
   }
 }
-
-
-// return Scaffold(
-//       appBar: PreferredSize(
-//         child: FeedAppBar(logged: true,),
-//         preferredSize: Size.fromHeight(100),
-//       ),
-//       backgroundColor: Color.fromRGBO(241,237,237, 1),
-//       body: SingleChildScrollView(
-//         scrollDirection: Axis.vertical,
-//         child: Column(
-//           children: [
-//             SearchField(labelText: "BUSCAR", margin: EdgeInsets.only(top: 10, bottom: 10, left: 40, right: 40)),
-//             DuvidaComponent(),
-//             DuvidaComponent(),
-//             DuvidaComponent(),
-//           ]
-//         ),
-//       ),
-//       floatingActionButton: IconButton(
-//         icon: Icon(Icons.add),
-//         onPressed: (){},
-//       ),
-//     );
-
-

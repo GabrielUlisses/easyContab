@@ -3,11 +3,7 @@ import 'package:easycontab/components/AppBar.dart';
 import 'package:easycontab/components/BackgroundBaseWidget.dart';
 import 'package:easycontab/components/Button.dart';
 import 'package:easycontab/components/CustomTextField.dart';
-import 'package:easycontab/components/FeedAppBar.dart';
-import 'package:easycontab/components/logo.dart';
-import 'package:easycontab/contants/app_assets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EditarUsuario extends StatelessWidget {

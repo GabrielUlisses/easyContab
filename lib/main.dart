@@ -1,4 +1,5 @@
 
+import 'package:easycontab/screen/Duvidas.dart';
 import 'package:easycontab/screen/PaginaLogin.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'easyContab',
       debugShowCheckedModeBanner: false,
-      home: PaginaLogin()
+      home: Duvidas()
     );
   }
 }
