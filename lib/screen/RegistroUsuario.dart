@@ -55,7 +55,6 @@ class _RegistroUsuarioState extends State<RegistroUsuario> {
             this.emailController.text,
             this.senhaController.text
           );
-          print(data);
           if( data["status"] == 201 ){
             // String userId = data["data"]["id"];
             data = await this.service.login( this.emailController.text, this.senhaController.text );

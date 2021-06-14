@@ -17,7 +17,7 @@ class Perfil extends StatelessWidget {
 
     preferences.init();
     
-    Map<String, dynamic> user = this.preferences.getUser();
+    // Map<String, dynamic> user = this.preferences.getUser();
 
     return BackgroundBaseWidget(
       child: Column(

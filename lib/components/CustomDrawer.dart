@@ -43,25 +43,33 @@ class CustomDrawer extends StatelessWidget {
             Divider( color: Colors.grey[300], height: 4),
             DrawerActionItem(
               title: "PERFIL",
-              action: Navigator.push( context, MaterialPageRoute(builder: (context) => Perfil()) ),
+              action: (){
+                Navigator.push( context, MaterialPageRoute(builder: (context) => Perfil()) );
+              },
               icon: Icons.person,
             ),
             Divider( color: Colors.grey[300], height: 4),
             DrawerActionItem(
               title: "DÚVIDAS",
-              action: Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) ),
+              action: (){
+                Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
+              },
               icon: Icons.question_answer,
             ),
             Divider( color: Colors.grey[300], height: 4),
             DrawerActionItem(
               title: "NOTIFICAÇÕES",
-              action: () {}, //Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) ),
+              action: () {
+                Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
+              },
               icon: Icons.notifications,
             ),
             Divider( color: Colors.grey[300], height: 4),
             DrawerActionItem(
               title: "MINHAS DÚVIDAS",
-              action: Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) ),
+              action: (){
+                Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
+              },
               icon: Icons.question_answer,
             ),
             Divider( color: Colors.grey[300], height: 4),
