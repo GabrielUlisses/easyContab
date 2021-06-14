@@ -1,5 +1,6 @@
 import 'package:easycontab/contants/app_assets.dart';
 import 'package:easycontab/screen/Duvidas.dart';
+import 'package:easycontab/screen/PaginaLogin.dart';
 import 'package:easycontab/screen/Perfil.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -71,6 +72,14 @@ class CustomDrawer extends StatelessWidget {
                 Navigator.push( context, MaterialPageRoute(builder: (context) => Duvidas()) );
               },
               icon: Icons.question_answer,
+            ),
+            Divider( color: Colors.grey[300], height: 4),
+            DrawerActionItem(
+              title: "Início",
+              action: (){
+                Navigator.push( context, MaterialPageRoute(builder: (context) => PaginaLogin()) );
+              },
+              icon: Icons.input_rounded,
             ),
             Divider( color: Colors.grey[300], height: 4),
           ],

@@ -3,7 +3,9 @@ import 'package:easycontab/components/CustomDrawer.dart';
 import 'package:easycontab/components/DuvidaComponent.dart';
 import 'package:easycontab/components/FeedAppBar.dart';
 import 'package:easycontab/components/SearchTextField.dart';
+import 'package:easycontab/models/Duvida.dart';
 import 'package:easycontab/screen/CriarDuvida.dart';
+import 'package:easycontab/screen/Duvida.dart';
 import 'package:flutter/material.dart';
 
 class Duvidas extends StatelessWidget {
@@ -34,7 +36,12 @@ class Duvidas extends StatelessWidget {
               scrollDirection: Axis.vertical,
               child: Column(
                 children: [               
-                  DuvidaComponent(),
+                  GestureDetector(
+                    child: DuvidaComponent(),
+                    onTap: (){
+                      Navigator.push( context, MaterialPageRoute(builder: (context) => VerDuvida()) );
+                    },
+                  ),
                   DuvidaComponent(),
                   DuvidaComponent(),
                 ]

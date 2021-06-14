@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'easyContab',
       debugShowCheckedModeBanner: false,
-      home: Duvidas()
+      home: PaginaLogin()
     );
   }
 }
